@@ -14,6 +14,8 @@
 		1547632525A46F7200773088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1547632425A46F7200773088 /* Assets.xcassets */; };
 		1547632825A46F7200773088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1547632625A46F7200773088 /* LaunchScreen.storyboard */; };
 		1547633D25A47C7200773088 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547633C25A47C7200773088 /* SearchTableViewCell.swift */; };
+		1551909A25A5BCD900307939 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1551909925A5BCD900307939 /* APIService.swift */; };
+		1551909E25A5BE4E00307939 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1551909D25A5BE4E00307939 /* SearchResults.swift */; };
 		3BFDBBC3F9777560FCB3C3D3 /* Pods_FinancialApp_dca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2007E88B1D36E22BE3A5B52F /* Pods_FinancialApp_dca.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		1547632725A46F7200773088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1547632925A46F7200773088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1547633C25A47C7200773088 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		1551909925A5BCD900307939 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		1551909D25A5BE4E00307939 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		2007E88B1D36E22BE3A5B52F /* Pods_FinancialApp_dca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinancialApp_dca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF147C5B556BAD7569BCC6C /* Pods-FinancialApp-dca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp-dca.debug.xcconfig"; path = "Target Support Files/Pods-FinancialApp-dca/Pods-FinancialApp-dca.debug.xcconfig"; sourceTree = "<group>"; };
 		4EF3DCE68CE84290A2667B35 /* Pods-FinancialApp-dca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp-dca.release.xcconfig"; path = "Target Support Files/Pods-FinancialApp-dca/Pods-FinancialApp-dca.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		1547631A25A46F7100773088 /* FinancialApp-dca */ = {
 			isa = PBXGroup;
 			children = (
+				1551909C25A5BE3E00307939 /* Model */,
+				1551909825A5BCC500307939 /* Services */,
 				1547633B25A47C4C00773088 /* controller */,
 				1547633A25A47C4200773088 /* view */,
 				1547631B25A46F7100773088 /* AppDelegate.swift */,
@@ -91,6 +97,22 @@
 				1547631F25A46F7100773088 /* SearchTableViewController.swift */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		1551909825A5BCC500307939 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1551909925A5BCD900307939 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1551909C25A5BE3E00307939 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1551909D25A5BE4E00307939 /* SearchResults.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2AB52CA5318DB4A412669328 /* Frameworks */ = {
@@ -225,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1547632025A46F7100773088 /* SearchTableViewController.swift in Sources */,
+				1551909A25A5BCD900307939 /* APIService.swift in Sources */,
 				1547633D25A47C7200773088 /* SearchTableViewCell.swift in Sources */,
 				1547631C25A46F7100773088 /* AppDelegate.swift in Sources */,
+				1551909E25A5BE4E00307939 /* SearchResults.swift in Sources */,
 				1547631E25A46F7100773088 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
