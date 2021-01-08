@@ -7,9 +7,15 @@
 
 import UIKit
 import Combine
+import MBProgressHUD
 
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController , UIAnimable {
+    
+    private enum Mode {
+        case onboarding
+        case search
+    }
     
     private lazy var searchController: UISearchController = {
         let sc  = UISearchController(searchResultsController: nil)
@@ -24,12 +30,14 @@ class SearchTableViewController: UITableViewController {
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
     private var searchResults : SearchResults?
+    @Published private var mode: Mode = .onboarding
     @Published private var searchQuery = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
+        setupTableView()
         observForm()
 //        performSearch()
     }
@@ -37,7 +45,12 @@ class SearchTableViewController: UITableViewController {
         $searchQuery.debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self](searchQuery) in
                 
+                showLoadAnimation()
+                
                 self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { (completion) in
+                    
+                    hideLoadingAnimation()
+                    
                     switch completion{
                     case .failure(let error):
                         print(error.localizedDescription)
@@ -48,6 +61,15 @@ class SearchTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }.store(in: &self.subscribers)
             }.store(in: &subscribers)
+        
+        $mode.sink {[unowned self] (mode) in
+            switch mode {
+            case .onboarding:
+                self.tableView.backgroundView = SearchPlaceholderView()
+            case.search:
+                self.tableView.backgroundView = nil
+            }
+        }.store(in: &subscribers)
     }
     
 //    func performSearch(){
@@ -65,6 +87,11 @@ class SearchTableViewController: UITableViewController {
     
     func setupNavigationBar(){
         navigationItem.searchController = searchController
+        navigationItem.title = "Search"
+    }
+    
+    func setupTableView(){
+        tableView.tableFooterView = UIView()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,6 +123,10 @@ extension SearchTableViewController : UISearchResultsUpdating, UISearchControlle
         self.searchQuery = searchQuery
 //        print(searchQuery)
     
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        mode = .search
     }
     
     
