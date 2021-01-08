@@ -44,7 +44,7 @@ class SearchTableViewController: UITableViewController , UIAnimable {
     private func observForm(){
         $searchQuery.debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self](searchQuery) in
-                
+                guard !searchQuery.isEmpty else {return}
                 showLoadAnimation()
                 
                 self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { (completion) in
@@ -109,6 +109,10 @@ class SearchTableViewController: UITableViewController , UIAnimable {
         
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
     
