@@ -10,6 +10,11 @@ import Combine
 
 struct APIService{
     
+    enum APIServiceError : Error{
+        case encoding
+        case badRequest
+    }
+    
     let keys = ["BINRH588YO9A4GD3","FLXLRSVPFYCRQ9KT","ENIVGV92QFI6H7XP"]
     
     var API_KEY : String {
@@ -18,9 +23,12 @@ struct APIService{
     
     func fetchSymbolsPublisher(keywords: String) -> AnyPublisher<SearchResults,Error>{
         
+        guard let keywords = keywords.addingPercentEncoding(withAllowedCharacters: .urlUserAllowed) else { return Fail(error: APIServiceError.encoding).eraseToAnyPublisher() }
+        
         let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keywords)&apikey=\(API_KEY)"
         
-        let url = URL(string: urlString)!
+        guard let url = URL(string: urlString) else {return Fail(error: APIServiceError.badRequest).eraseToAnyPublisher()}
+      
         
         return URLSession.shared.dataTaskPublisher(for: url)
             .map({$0.data})
