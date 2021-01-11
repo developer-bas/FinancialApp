@@ -53,6 +53,7 @@ struct APIService{
         }
         
     }
+    
     func fetchTimeSeriesMonthlyAdjustedPublisher(keywords: String) -> AnyPublisher<TimeSeriesMonthlyAdjusted,Error> {
         
         let result = parseQuery(text: keywords)
