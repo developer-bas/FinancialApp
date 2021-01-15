@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="1034.7826086956522" y="94.419642857142847"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Calculator Table View Controller-->
         <scene sceneID="oFb-RU-smL">
             <objects>
-                <tableViewController id="ihI-Mv-g7m" sceneMemberID="viewController">
+                <tableViewController id="ihI-Mv-g7m" customClass="CalculatorTableViewController" customModule="FinancialApp_dca" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vVR-F0-t6b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

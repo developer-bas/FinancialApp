@@ -22,6 +22,7 @@ struct TimeSeriesMonthlyAdjusted : Decodable {
         case meta = "Meta Data"
         case timeSeries = "Monthly Adjusted Time Series"
     }
+    
     func getMonthInfo() -> [MonthInfo] {
         var monthInfos: [MonthInfo] = []
         let sortedTimeSeries = timeSeries.sorted(by: {$0.key > $1.key})
