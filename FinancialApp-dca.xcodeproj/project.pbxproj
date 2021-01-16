@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		153400FE25B1651500154046 /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153400FD25B1651500154046 /* CalculatorTableViewController.swift */; };
 		1534010125B165DC00154046 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534010025B165DC00154046 /* Asset.swift */; };
+		1534010525B2B61500154046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534010425B2B61500154046 /* Extensions.swift */; };
 		1547631C25A46F7100773088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547631B25A46F7100773088 /* AppDelegate.swift */; };
 		1547631E25A46F7100773088 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547631D25A46F7100773088 /* SceneDelegate.swift */; };
 		1547632025A46F7100773088 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547631F25A46F7100773088 /* SearchTableViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		153400FD25B1651500154046 /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
 		1534010025B165DC00154046 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		1534010425B2B61500154046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1547631825A46F7100773088 /* FinancialApp-dca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FinancialApp-dca.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1547631B25A46F7100773088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1547631D25A46F7100773088 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1534010325B2B5FE00154046 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1534010425B2B61500154046 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1547630F25A46F7100773088 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		1547631A25A46F7100773088 /* FinancialApp-dca */ = {
 			isa = PBXGroup;
 			children = (
+				1534010325B2B5FE00154046 /* Extensions */,
 				155190AB25A86A9E00307939 /* protocol */,
 				1551909C25A5BE3E00307939 /* Model */,
 				1551909825A5BCC500307939 /* Services */,
@@ -276,6 +287,7 @@
 				153400FE25B1651500154046 /* CalculatorTableViewController.swift in Sources */,
 				1547633D25A47C7200773088 /* SearchTableViewCell.swift in Sources */,
 				1547631C25A46F7100773088 /* AppDelegate.swift in Sources */,
+				1534010525B2B61500154046 /* Extensions.swift in Sources */,
 				155190B125A9158100307939 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				1551909E25A5BE4E00307939 /* SearchResults.swift in Sources */,
 				1547631E25A46F7100773088 /* SceneDelegate.swift in Sources */,
