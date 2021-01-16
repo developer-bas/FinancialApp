@@ -349,16 +349,10 @@
                                                                     <rect key="frame" x="0.0" y="31" width="382" height="14"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="initial date of investment " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd3-FP-vEe">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="137.5" height="14"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="14" id="cL6-xu-hHR"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiR-us-ehX">
-                                                                            <rect key="frame" x="141.5" y="0.0" width="240.5" height="14"/>
                                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -397,7 +391,6 @@
                         <outletCollection property="currencyLabels" destination="bMY-UH-jog" collectionClass="NSMutableArray" id="nL3-6X-fJj"/>
                         <outletCollection property="currencyLabels" destination="EdF-W2-aNL" collectionClass="NSMutableArray" id="OdZ-9W-kCQ"/>
                         <outletCollection property="currencyLabels" destination="OiX-ea-CQL" collectionClass="NSMutableArray" id="jlP-r8-Z0k"/>
-                        <outletCollection property="currencyLabels" destination="oiR-us-ehX" collectionClass="NSMutableArray" id="3Ih-Uc-KfO"/>
                         <segue destination="9kG-tS-c45" kind="show" id="T5R-iO-Izq"/>
                     </connections>
                 </tableViewController>
