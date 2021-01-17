@@ -386,9 +386,9 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="I14-7p-RfT"/>
                     <connections>
                         <outlet property="assetNameLabel" destination="daS-qD-sOH" id="Ff5-ts-0sL"/>
+                        <outlet property="investmenAmountCurrencyLabel" destination="bMY-UH-jog" id="0Gq-dy-qQ5"/>
                         <outlet property="symbolLabel" destination="u7c-h4-tni" id="cNJ-4H-mVk"/>
                         <outletCollection property="currencyLabels" destination="gOF-0t-dmc" collectionClass="NSMutableArray" id="ccF-B6-92a"/>
-                        <outletCollection property="currencyLabels" destination="bMY-UH-jog" collectionClass="NSMutableArray" id="nL3-6X-fJj"/>
                         <outletCollection property="currencyLabels" destination="EdF-W2-aNL" collectionClass="NSMutableArray" id="OdZ-9W-kCQ"/>
                         <outletCollection property="currencyLabels" destination="OiX-ea-CQL" collectionClass="NSMutableArray" id="jlP-r8-Z0k"/>
                         <segue destination="9kG-tS-c45" kind="show" id="T5R-iO-Izq"/>
