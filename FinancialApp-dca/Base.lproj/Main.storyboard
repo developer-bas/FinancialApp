@@ -95,7 +95,7 @@
         <scene sceneID="oFb-RU-smL">
             <objects>
                 <tableViewController id="ihI-Mv-g7m" customClass="CalculatorTableViewController" customModule="FinancialApp_dca" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vVR-F0-t6b">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vVR-F0-t6b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -277,7 +277,7 @@
                                                                         <constraint firstAttribute="height" constant="35" id="n4U-Ng-IaL"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-mh-TKJ">
                                                                     <rect key="frame" x="0.0" y="31" width="382" height="14"/>
@@ -310,7 +310,7 @@
                                                                         <constraint firstAttribute="height" constant="35" id="trI-BN-VrO"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="k8I-be-ViS">
                                                                     <rect key="frame" x="0.0" y="31" width="382" height="14"/>
@@ -386,7 +386,9 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="I14-7p-RfT"/>
                     <connections>
                         <outlet property="assetNameLabel" destination="daS-qD-sOH" id="Ff5-ts-0sL"/>
+                        <outlet property="initialInvestmenAmountTextField" destination="EJ8-iZ-tE2" id="peY-p0-x3c"/>
                         <outlet property="investmenAmountCurrencyLabel" destination="bMY-UH-jog" id="0Gq-dy-qQ5"/>
+                        <outlet property="monthlyDollarCostAveringTextField" destination="L5C-Dq-Qzd" id="rjP-qD-lse"/>
                         <outlet property="symbolLabel" destination="u7c-h4-tni" id="cNJ-4H-mVk"/>
                         <outletCollection property="currencyLabels" destination="gOF-0t-dmc" collectionClass="NSMutableArray" id="ccF-B6-92a"/>
                         <outletCollection property="currencyLabels" destination="EdF-W2-aNL" collectionClass="NSMutableArray" id="OdZ-9W-kCQ"/>

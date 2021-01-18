@@ -10,6 +10,8 @@ import UIKit
 
 class CalculatorTableViewController : UITableViewController{
     
+    @IBOutlet weak var initialInvestmenAmountTextField: UITextField!
+    @IBOutlet weak var monthlyDollarCostAveringTextField: UITextField!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var assetNameLabel : UILabel!
     @IBOutlet var currencyLabels: [UILabel]!
@@ -21,6 +23,7 @@ class CalculatorTableViewController : UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        setupTextField()
     }
     
     private func setUpViews(){
@@ -32,6 +35,10 @@ class CalculatorTableViewController : UITableViewController{
 
         }
         
+    }
+    private func setupTextField(){
+        initialInvestmenAmountTextField.addDoneButton()
+        monthlyDollarCostAveringTextField.addDoneButton()
     }
     
 }

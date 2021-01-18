@@ -118,6 +118,7 @@ class SearchTableViewController: UITableViewController , UIAnimable {
             handleSelection(for: symbol, search: searchResult)
         
         }
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
 
