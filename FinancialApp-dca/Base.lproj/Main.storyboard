@@ -386,6 +386,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="I14-7p-RfT"/>
                     <connections>
                         <outlet property="assetNameLabel" destination="daS-qD-sOH" id="Ff5-ts-0sL"/>
+                        <outlet property="initialDateOfInvestmentTextField" destination="L7D-w7-jfq" id="ERq-wo-yks"/>
                         <outlet property="initialInvestmenAmountTextField" destination="EJ8-iZ-tE2" id="peY-p0-x3c"/>
                         <outlet property="investmenAmountCurrencyLabel" destination="bMY-UH-jog" id="0Gq-dy-qQ5"/>
                         <outlet property="monthlyDollarCostAveringTextField" destination="L5C-Dq-Qzd" id="rjP-qD-lse"/>
@@ -393,7 +394,7 @@
                         <outletCollection property="currencyLabels" destination="gOF-0t-dmc" collectionClass="NSMutableArray" id="ccF-B6-92a"/>
                         <outletCollection property="currencyLabels" destination="EdF-W2-aNL" collectionClass="NSMutableArray" id="OdZ-9W-kCQ"/>
                         <outletCollection property="currencyLabels" destination="OiX-ea-CQL" collectionClass="NSMutableArray" id="jlP-r8-Z0k"/>
-                        <segue destination="9kG-tS-c45" kind="show" id="T5R-iO-Izq"/>
+                        <segue destination="9kG-tS-c45" kind="show" identifier="showDateSelection" id="T5R-iO-Izq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHQ-ac-nwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -427,7 +428,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCi-0L-TBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2601" y="192"/>
+            <point key="canvasLocation" x="2725" y="-149"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cZq-fd-PI1">

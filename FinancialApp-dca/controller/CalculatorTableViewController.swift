@@ -12,6 +12,7 @@ class CalculatorTableViewController : UITableViewController{
     
     @IBOutlet weak var initialInvestmenAmountTextField: UITextField!
     @IBOutlet weak var monthlyDollarCostAveringTextField: UITextField!
+    @IBOutlet weak var initialDateOfInvestmentTextField: UITextField!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var assetNameLabel : UILabel!
     @IBOutlet var currencyLabels: [UILabel]!
@@ -39,6 +40,25 @@ class CalculatorTableViewController : UITableViewController{
     private func setupTextField(){
         initialInvestmenAmountTextField.addDoneButton()
         monthlyDollarCostAveringTextField.addDoneButton()
+        initialDateOfInvestmentTextField.delegate = self
+    }
+    
+    
+    
+}
+
+extension CalculatorTableViewController: UITextFieldDelegate{
+    
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == initialDateOfInvestmentTextField{
+            performSegue(withIdentifier: "showDateSelection", sender: asset?.timeSeriesMonthlyAdjusted)
+            
+        }
+        return false
     }
     
 }
+
+//showDateSelection
