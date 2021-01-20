@@ -21,6 +21,8 @@ class CalculatorTableViewController : UITableViewController{
     
     var asset: Asset?
     
+    private var initialDateOfInvestmentIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -45,7 +47,7 @@ class CalculatorTableViewController : UITableViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDateSelection",let dateSelectionTableviewController = segue.destination as? DateSelectionTableviewController, let timeSeriesMonthlyAdjusted = sender as? TimeSeriesMonthlyAdjusted{
-            
+            dateSelectionTableviewController.selectedIndex = initialDateOfInvestmentIndex
             dateSelectionTableviewController.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
             
             dateSelectionTableviewController.didSelectDate = { [weak self ]index in
@@ -60,7 +62,10 @@ class CalculatorTableViewController : UITableViewController{
         guard navigationController?.visibleViewController is DateSelectionTableviewController else {return}
         navigationController?.popViewController(animated: true)
         
+        
+        
         if let monthInfos = asset?.timeSeriesMonthlyAdjusted.getMonthInfo(){
+            initialDateOfInvestmentIndex = index
             let monthInfo = monthInfos[index]
             let dateString = monthInfo.date.MMYYFormat
             initialDateOfInvestmentTextField.text = dateString

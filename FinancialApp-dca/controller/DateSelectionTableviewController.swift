@@ -13,6 +13,7 @@ class DateSelectionTableviewController: UITableViewController {
     private var monthInfos: [MonthInfo] = []
     
     var didSelectDate: ((Int) -> Void)?
+    var selectedIndex : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,9 @@ extension DateSelectionTableviewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DateSelectionTableviewCell
         
         let index = indexPath.item
-        
+        let isSelected = index == selectedIndex
         let monthInfo = monthInfos[indexPath.item]
-        cell.configure(with: monthInfo, index: index)
+        cell.configure(with: monthInfo, index: index,isSelected: isSelected)
         return cell
         
     }
@@ -68,8 +69,9 @@ class DateSelectionTableviewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var monthsAgoLabel : UILabel!
     
-    func configure(with monthInfo: MonthInfo, index: Int){
+    func configure(with monthInfo: MonthInfo, index: Int, isSelected: Bool){
         dateLabel.text = monthInfo.date.MMYYFormat
+        accessoryType = isSelected ? .checkmark : .none
         
         if index == 1 {
             monthsAgoLabel.text = "1 month ago"
