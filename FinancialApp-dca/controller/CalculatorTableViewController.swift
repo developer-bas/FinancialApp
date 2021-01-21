@@ -24,6 +24,9 @@ class CalculatorTableViewController : UITableViewController{
     var asset: Asset?
     
     @Published private var initialDateOfInvestmentIndex: Int?
+    @Published private var initialInvestmentAmount: Int?
+    @Published private var monthlyDollarCostAvering: Int?
+    
     private var subscribers = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -67,6 +70,27 @@ class CalculatorTableViewController : UITableViewController{
             }
             
         }.store(in: &subscribers)
+        
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: monthlyDollarCostAveringTextField).compactMap({
+            ($0.object as? UITextField)?.text
+        }).sink { [weak self] (text) in
+            self?.monthlyDollarCostAvering = Int(text) ?? 0
+        }.store(in: &subscribers)
+        
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: initialInvestmenAmountTextField).compactMap({
+            ($0.object as? UITextField)?.text
+        }).sink { [weak self] (text) in
+            self?.initialInvestmentAmount = Int(text) ?? 0
+        }.store(in: &subscribers)
+        
+        Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAvering, $initialDateOfInvestmentIndex).sink { ( initialInvestmentAmount, monthlyDollarCostAvering , initialDateOfInvestmentIndex ) in
+            
+            
+            print("\(initialInvestmentAmount), \(monthlyDollarCostAvering), \(initialDateOfInvestmentIndex)")
+            
+            
+        }.store(in: &subscribers)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
