@@ -105,6 +105,7 @@ class CalculatorTableViewController : UITableViewController{
             self?.annualReturnlabel.text = result?.annualReturn.stringValue
             
             
+            
         }.store(in: &subscribers)
         
     }
