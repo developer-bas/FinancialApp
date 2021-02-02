@@ -91,11 +91,11 @@ class CalculatorTableViewController : UITableViewController{
         
         Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAvering, $initialDateOfInvestmentIndex).sink {[weak self] ( initialInvestmentAmount, monthlyDollarCostAvering , initialDateOfInvestmentIndex ) in
             
-            guard let initialInvestmentAmount = initialInvestmentAmount, let monthlyDollarCostAvering  = monthlyDollarCostAvering, let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex else {
+            guard let initialInvestmentAmount = initialInvestmentAmount, let monthlyDollarCostAvering  = monthlyDollarCostAvering, let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex , let asset = self?.asset else {
                 return
             }
             
-            let result = self?.dcaService.calculate(initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAveragingAmount: monthlyDollarCostAvering.doubleValue, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+            let result = self?.dcaService.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAveragingAmount: monthlyDollarCostAvering.doubleValue, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
             
             
             self?.currentValueLabel.text = result?.currencyValue.stringValue

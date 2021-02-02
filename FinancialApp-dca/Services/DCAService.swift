@@ -9,11 +9,17 @@ import Foundation
 
 struct DCAService {
     
-    func calculate(initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateOfInvestmentIndex: Int) -> DCAResult {
+    func calculate(asset : Asset , initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateOfInvestmentIndex: Int) -> DCAResult {
         
         let investmentAmount = getInvestmentAmount(initialInvestmentAmount: initialInvestmentAmount, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
         
-        return .init(currencyValue: 0, investementAmount: 0, gain: 0, yield: 0, annualReturn: 0)
+        let latestSharePrice = getLatestSharePrice(asset: asset)
+        
+        let currentValue = getCurrentValue(numberOfshares: 100, latestSharePrice: latestSharePrice)
+        
+        
+        return .init(currencyValue: 0, investementAmount: investmentAmount, gain: 0, yield: 0, annualReturn: 0)
+        
     }
     private func getInvestmentAmount(initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateOfInvestmentIndex: Int)-> Double{
         
@@ -23,6 +29,18 @@ struct DCAService {
         totalAmount += dollarCostAveragingAmount
         
         return totalAmount
+        
+    }
+    
+    private func getCurrentValue(numberOfshares: Double,latestSharePrice: Double )-> Double {
+        return numberOfshares * latestSharePrice
+    }
+    
+    private func getLatestSharePrice(asset : Asset)-> Double{
+        
+        return  asset.timeSeriesMonthlyAdjusted.getMonthInfo().first?.adjustedClose ?? 0
+        
+        
         
     }
 }
