@@ -11,5 +11,9 @@ extension Double {
     var stringValue: String {
         return String(describing: self)
     }
+ 
+    var twoDecimalPalceString: String {
+        return String (format: "%.2f", self)
+    }
     
 }

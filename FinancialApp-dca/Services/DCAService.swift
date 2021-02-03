@@ -15,10 +15,15 @@ struct DCAService {
         
         let latestSharePrice = getLatestSharePrice(asset: asset)
         
-        let currentValue = getCurrentValue(numberOfshares: 100, latestSharePrice: latestSharePrice)
+        let numberOfShares = getNumberOfShares(asset: asset, initialInvestmentAmount: initialInvestmentAmount, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
         
         
-        return .init(currencyValue: currentValue, investementAmount: investmentAmount, gain: 0, yield: 0, annualReturn: 0)
+        let currentValue = getCurrentValue(numberOfshares: numberOfShares, latestSharePrice: latestSharePrice)
+        
+        
+        let isrofitable = currentValue > investmentAmount
+        
+        return .init(currencyValue: currentValue, investementAmount: investmentAmount, gain: 0, yield: 0, annualReturn: 0, isProfitable: isrofitable)
         
     }
     private func getInvestmentAmount(initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateOfInvestmentIndex: Int)-> Double{
@@ -50,6 +55,7 @@ struct DCAService {
         
         let initialInvestmentOpenPrice = asset.timeSeriesMonthlyAdjusted.getMonthInfo()[initialDateOfInvestmentIndex].adjustedOpen
         let initialInvestmentShares = initialInvestmentAmount / initialInvestmentOpenPrice
+        totalShares += initialInvestmentShares
         
         asset.timeSeriesMonthlyAdjusted.getMonthInfo().prefix(initialDateOfInvestmentIndex).forEach { (monthInfo) in
             let dcaInvestmentShares = monthlyDollarCostAveragingAmount / monthInfo.adjustedOpen
@@ -69,4 +75,5 @@ struct  DCAResult {
     let gain: Double
     let yield : Double
     let annualReturn: Double
+    let isProfitable:Bool
 }
