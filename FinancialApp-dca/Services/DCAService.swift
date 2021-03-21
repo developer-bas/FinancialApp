@@ -23,7 +23,13 @@ struct DCAService {
         
         let isrofitable = currentValue > investmentAmount
         
-        return .init(currencyValue: currentValue, investementAmount: investmentAmount, gain: 0, yield: 0, annualReturn: 0, isProfitable: isrofitable)
+        let gain = currentValue - investmentAmount
+        
+        return .init(currencyValue: currentValue, investementAmount: investmentAmount,
+                     gain: gain,
+                     yield: 0,
+                     annualReturn: 0,
+                     isProfitable: isrofitable)
         
     }
     private func getInvestmentAmount(initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateOfInvestmentIndex: Int)-> Double{
