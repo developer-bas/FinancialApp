@@ -41,6 +41,12 @@ class CalculatorTableViewController : UITableViewController{
         setupTextField()
         setupDateSlider()
         observeForm()
+        resetViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initialInvestmenAmountTextField.becomeFirstResponder()
     }
     
     private func setUpViews(){
@@ -92,6 +98,7 @@ class CalculatorTableViewController : UITableViewController{
         Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAvering, $initialDateOfInvestmentIndex).sink {[weak self] ( initialInvestmentAmount, monthlyDollarCostAvering , initialDateOfInvestmentIndex ) in
             
             guard let initialInvestmentAmount = initialInvestmentAmount, let monthlyDollarCostAvering  = monthlyDollarCostAvering, let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex , let asset = self?.asset else {
+                self?.resetViews()
                 return
             }
             
@@ -139,6 +146,14 @@ class CalculatorTableViewController : UITableViewController{
             let dateString = monthInfo.date.MMYYFormat
             initialDateOfInvestmentTextField.text = dateString
         }
+    }
+    
+    private func resetViews(){
+        currentValueLabel.text = "0.00"
+        investentAmountLabel.text = "0.00"
+        gainLabel.text = "-"
+        yieldLabel.text = "-"
+        annualReturnlabel.text = "-"
     }
     
     @IBAction func dateSliderDidChange(_ sender: UISlider){
