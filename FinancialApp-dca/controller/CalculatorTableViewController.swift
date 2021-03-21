@@ -104,7 +104,8 @@ class CalculatorTableViewController : UITableViewController{
             self?.currentValueLabel.text = result?.currencyValue.currencyFormat
             self?.investentAmountLabel.text = result?.investementAmount.currencyFormat
             self?.gainLabel.text = result?.gain.toCurrencyFormat(hasDollarSymbol: false, hasDecimalPlaces: false).prefix(withText: gainSymbol)
-            self?.yieldLabel.text = result?.yield.stringValue
+            self?.yieldLabel.text = result?.yield.percentageFormat.prefix(withText: gainSymbol).addBrackets()
+            self?.yieldLabel.textColor = isProfitable ? .systemGreen : .systemRed
             self?.annualReturnlabel.text = result?.annualReturn.stringValue
             
             
