@@ -33,12 +33,40 @@ class FinancialApp_dcaTests: XCTestCase {
     // what
     //given
     // expectation
-    func testDCAResult_givenDollarCostAveragingIsUsed_expectResult(){
+    func testResult_givenWinningAssetAndDCAIsUsed_expectPositiveGains(){
+        //given
+        
+        let initialInvestmentAmount : Double = 5000
+        let monthlyDollarCostAveragingAmount : Double = 1500
+        
+        let initialDateOfInvestmentIndex = 5
+        
+        //when
+        
+      //  let result = sut.calculate(asset: <#T##Asset#>, initialInvestmentAmount: <#T##Double#>, monthlyDollarCostAveragingAmount: <#T##Double#>, initialDateOfInvestmentIndex: <#T##Int#>)
+        
+        //then
+    }
+    
+    func testResult_givenWinningAssetAndDCAIsNotUsed_expectPositiveGains(){
         
     }
-
-    func testDCAResult_givenDollarCostAveragingIsNotUsed_expectResult(){
+    
+    func testResult_givenLosingAssetAndDCAIsUsed_expectNegativeGains(){
         
+    }
+    
+    func testResult_givenLosingAssetAndDCAIsNotUsed_expectNegativeGains(){
+        
+    }
+    
+    private func buildWinningAsset() -> Asset {
+       
+    //    return Asset(searchResult: <#T##SearchResult#>, timeSeriesMonthlyAdjusted: <#T##TimeSeriesMonthlyAdjusted#>)
+    }
+    
+    private func buildSearchResul() -> SearchResult {
+        return SearchResult(symbol: "XYZ", name: "XYZ Company", type: "ETF", currency: "USD")
     }
     
     func testInvestmentAmount_whenDCAIsUsed_expectResult(){
