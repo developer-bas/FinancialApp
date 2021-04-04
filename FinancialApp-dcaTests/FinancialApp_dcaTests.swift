@@ -85,11 +85,53 @@ class FinancialApp_dcaTests: XCTestCase {
     }
     
     func testResult_givenLosingAssetAndDCAIsUsed_expectNegativeGains(){
+        //given
         
+        let initialInvestmentAmount : Double = 5000
+        let monthlyDollarCostAveragingAmount : Double = 1500
+        
+        let initialDateOfInvestmentIndex = 5
+        
+        let asset = buildLosingAsse()
+        //when
+        
+        let result = sut.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+        
+        //then
+        
+        
+        XCTAssertEqual(result.investementAmount, 12500)
+        XCTAssertFalse(result.isProfitable)
+        
+        
+        XCTAssertEqual(result.currencyValue, 9189.323 , accuracy: 0.1 )
+        XCTAssertEqual(result.gain, -3310.677, accuracy: 01)
+        XCTAssertEqual(result.yield, -0.2648, accuracy: 0.0001)
     }
     
     func testResult_givenLosingAssetAndDCAIsNotUsed_expectNegativeGains(){
+        //given
         
+        let initialInvestmentAmount : Double = 5000
+        let monthlyDollarCostAveragingAmount : Double = 0
+        
+        let initialDateOfInvestmentIndex = 3
+        
+        let asset = buildLosingAsse()
+        //when
+        
+        let result = sut.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+        
+        //then
+        
+        
+        XCTAssertEqual(result.investementAmount, 5000)
+        XCTAssertFalse(result.isProfitable)
+        
+        
+        XCTAssertEqual(result.currencyValue, 3666.6 , accuracy: 0.1 )
+        XCTAssertEqual(result.gain, -1333.333, accuracy: 01)
+        XCTAssertEqual(result.yield, -0.2666, accuracy: 0.0001)
     }
     
     private func buildWinningAsset() -> Asset {
@@ -103,6 +145,24 @@ class FinancialApp_dcaTests: XCTestCase {
              "2021-04-25": OHLC(open: "130", close: "140", adjustedClose: "140"),
              "2021-05-25": OHLC(open: "140", close: "150", adjustedClose: "150"),
              "2021-06-25": OHLC(open: "150", close: "160", adjustedClose: "160")
+            ]
+        
+        
+        let timeSriesMonthltyAdjusted = TimeSeriesMonthlyAdjusted(meta: meta, timeSeries: timeSeries)
+        
+        return Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSriesMonthltyAdjusted)
+    }
+    
+    private func buildLosingAsse() -> Asset {
+        let searchResult = buildSearchResults()
+        let meta = buildMeta()
+        let timeSeries : [String : OHLC] =
+            ["2021-01-25": OHLC(open: "170", close: "160", adjustedClose: "160"),
+             "2021-02-25": OHLC(open: "160", close: "150", adjustedClose: "150"),
+             "2021-03-25": OHLC(open: "150", close: "140", adjustedClose: "140"),
+             "2021-04-25": OHLC(open: "140", close: "130", adjustedClose: "130"),
+             "2021-05-25": OHLC(open: "130", close: "120", adjustedClose: "120"),
+             "2021-06-25": OHLC(open: "120", close: "110", adjustedClose: "110")
             ]
         
         
