@@ -59,6 +59,29 @@ class FinancialApp_dcaTests: XCTestCase {
     
     func testResult_givenWinningAssetAndDCAIsNotUsed_expectPositiveGains(){
         
+        //given
+        
+        let initialInvestmentAmount : Double = 5000
+        let monthlyDollarCostAveragingAmount : Double = 0
+        
+        let initialDateOfInvestmentIndex = 3
+        
+        let asset = buildWinningAsset()
+        //when
+        
+        let result = sut.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+        
+        //then
+        
+        
+        XCTAssertEqual(result.investementAmount, 5000)
+        XCTAssertTrue(result.isProfitable)
+        
+        
+        XCTAssertEqual(result.currencyValue, 6666.666 , accuracy: 0.1 )
+        XCTAssertEqual(result.gain, 1666.666, accuracy: 01)
+        XCTAssertEqual(result.yield, 0.3333, accuracy: 0.0001)
+        
     }
     
     func testResult_givenLosingAssetAndDCAIsUsed_expectNegativeGains(){
