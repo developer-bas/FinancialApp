@@ -27,19 +27,27 @@ struct TimeSeriesMonthlyAdjusted : Decodable {
         var monthInfos: [MonthInfo] = []
         let sortedTimeSeries = timeSeries.sorted(by: {$0.key > $1.key})
         
-        sortedTimeSeries.forEach { (dateString,ohlc) in
+        
+        for (dateString,ohlc) in sortedTimeSeries {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            let date = dateFormatter.date(from: dateString)!
-            let adjustedOpen =  getAdjustedOpen(ohlc: ohlc)
-            let mothInfo =  MonthInfo(date: date, adjustedOpen: adjustedOpen, adjustedClose: Double(ohlc.adjustedClose)!)
+            guard let date = dateFormatter.date(from: dateString) ,
+                  let adjustedOpen =  getAdjustedOpen(ohlc: ohlc) ,
+                  let adjustedClose = ohlc.adjustedClose.toDouble() else { return []}
+            let mothInfo =  MonthInfo(date: date, adjustedOpen: adjustedOpen, adjustedClose: adjustedClose)
             monthInfos.append(mothInfo)
         }
         
+        
         return monthInfos
     }
-    private func getAdjustedOpen(ohlc: OHLC)  -> Double{
-        return Double(ohlc.open)! * (Double(ohlc.adjustedClose)! / Double(ohlc.close)!)
+    private func getAdjustedOpen(ohlc: OHLC)  -> Double? {
+        
+        guard let open =  ohlc.open.toDouble() ,
+              let adjustedClose = ohlc.adjustedClose.toDouble(),
+              let close = ohlc.close.toDouble() else { return nil }
+        
+        return open * adjustedClose / close
     }
     
 }

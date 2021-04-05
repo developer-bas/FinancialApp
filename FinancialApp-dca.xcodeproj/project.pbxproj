@@ -24,6 +24,8 @@
 		155190B125A9158100307939 /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155190B025A9158100307939 /* TimeSeriesMonthlyAdjusted.swift */; };
 		15562E9325C673C400C62DA4 /* DCAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15562E9225C673C400C62DA4 /* DCAService.swift */; };
 		15562E9625C6793200C62DA4 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15562E9525C6793200C62DA4 /* Double+Extensions.swift */; };
+		15617DBD261A7A1C00305C0D /* CalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15617DBC261A7A1C00305C0D /* CalculatorPresenter.swift */; };
+		15617DC1261A7F5500305C0D /* CalculatorPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15617DC0261A7F5500305C0D /* CalculatorPresenterTest.swift */; };
 		15979C6825CA717400F1B024 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15979C6725CA717400F1B024 /* UIColor + Extensions.swift */; };
 		15EFB43925B5540D0005E15E /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFB43825B5540D0005E15E /* UITextField+Extension.swift */; };
 		15EFB46425B6A2810005E15E /* DateSelectionTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFB46325B6A2810005E15E /* DateSelectionTableviewController.swift */; };
@@ -63,6 +65,8 @@
 		155190B025A9158100307939 /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
 		15562E9225C673C400C62DA4 /* DCAService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCAService.swift; sourceTree = "<group>"; };
 		15562E9525C6793200C62DA4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		15617DBC261A7A1C00305C0D /* CalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorPresenter.swift; sourceTree = "<group>"; };
+		15617DC0261A7F5500305C0D /* CalculatorPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorPresenterTest.swift; sourceTree = "<group>"; };
 		15979C6725CA717400F1B024 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		15EFB43825B5540D0005E15E /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		15EFB46325B6A2810005E15E /* DateSelectionTableviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionTableviewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				1551909925A5BCD900307939 /* APIService.swift */,
 				15562E9225C673C400C62DA4 /* DCAService.swift */,
+				15617DBC261A7A1C00305C0D /* CalculatorPresenter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			children = (
 				15FAC2A5260992E700D83A96 /* FinancialApp_dcaTests.swift */,
 				15FAC2A7260992E700D83A96 /* Info.plist */,
+				15617DC0261A7F5500305C0D /* CalculatorPresenterTest.swift */,
 			);
 			path = "FinancialApp-dcaTests";
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				1534010125B165DC00154046 /* Asset.swift in Sources */,
 				153400FE25B1651500154046 /* CalculatorTableViewController.swift in Sources */,
 				15EFB46A25B7F5E40005E15E /* Int+Extensions.swift in Sources */,
+				15617DBD261A7A1C00305C0D /* CalculatorPresenter.swift in Sources */,
 				15EFB46725B6AB3F0005E15E /* Date+Extension.swift in Sources */,
 				1547633D25A47C7200773088 /* SearchTableViewCell.swift in Sources */,
 				15979C6825CA717400F1B024 /* UIColor + Extensions.swift in Sources */,
@@ -389,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15617DC1261A7F5500305C0D /* CalculatorPresenterTest.swift in Sources */,
 				15FAC2A6260992E700D83A96 /* FinancialApp_dcaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
